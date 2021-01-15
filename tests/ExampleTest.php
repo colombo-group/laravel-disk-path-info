@@ -1,21 +1,24 @@
 <?php
 
-namespace Colombo\LaravelDiskPathInfo\Tests;
+namespace Colombo\Libs\DiskPathTools\Tests;
 
-use Orchestra\Testbench\TestCase;
-use Colombo\LaravelDiskPathInfo\LaravelDiskPathInfoServiceProvider;
+use Colombo\Libs\DiskPathTools\DiskPathInfo;
+use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
-
-    protected function getPackageProviders($app)
-    {
-        return [LaravelDiskPathInfoServiceProvider::class];
-    }
     
     /** @test */
     public function true_is_true()
     {
+        $this->assertTrue(true);
+    }
+    
+    public function test_create_disk_path_info() {
+        $disk = 'local';
+        $path = 'test.txt';
+        $path_info = new DiskPathInfo($disk, $path);
+        dump("Disk path info: ",$path_info, "$path_info");
         $this->assertTrue(true);
     }
 }
